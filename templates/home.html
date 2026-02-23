@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KobiWare CTF Team Writeups</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="site-title">KobiWare CTF Team Writeups</div>
+            <a href="https://ctftime.org/team/425636" class="nav-team-link" target="_blank" rel="noopener">CTFTime Team <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+        </nav>
+    </header>
+    <main>
+        <div class="home-header">
+            <input type="text" id="ctf-search" class="search-box" placeholder="Search CTFs...">
+        </div>
+        <div class="ctf-grid" id="ctf-grid">
+            {% for ctf in ctfs %}
+            <div class="ctf-card-wrapper" data-name="{{ ctf.name|lower }}">
+                <a href="{{ ctf.slug }}/" class="ctf-card">
+                    <h2 class="ctf-card-name">{{ ctf.name }}</h2>
+                    <span class="ctf-card-date">{{ ctf.date }}</span>
+                    <div class="ctf-card-bottom">
+                        {% if ctf.placement %}<span class="ctf-card-placement">{{ ctf.placement }} place</span>{% endif %}
+                        {% if ctf.ctftime_url %}
+                        <span class="ctf-card-ctftime" onclick="event.preventDefault(); window.open('{{ ctf.ctftime_url }}', '_blank');">CTFTime <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+                        {% endif %}
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+    <footer>
+        <p>&copy; KobiWare {{ year }}</p>
+    </footer>
+    <script>
+    document.getElementById('ctf-search').addEventListener('input', function() {
+        const q = this.value.toLowerCase();
+        document.querySelectorAll('.ctf-card-wrapper').forEach(function(card) {
+            card.style.display = card.dataset.name.includes(q) ? '' : 'none';
+        });
+    });
+    </script>
+</body>
+</html>

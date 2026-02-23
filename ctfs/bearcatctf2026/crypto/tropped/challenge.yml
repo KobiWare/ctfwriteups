@@ -1,0 +1,24 @@
+name: Tropped
+author: Ian
+category: crypto
+description: I was looking to make an asymmetric matrix-based cryptosystem, but my
+  attempts kept getting broken because matrix inverses are easily computed. Then I
+  discovered the Tropical semiring, and now my matrix inverse problems are no more!!!
+  I've given you a diagram of the scheme, code snippet, and values that a MITM attack
+  would yield, can you make sure it's secure?
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{1_h4T3_M7_Tr0p93D_4Hh_CRyp705ysT3m}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/tropped.py
+- dist/output.txt

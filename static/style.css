@@ -1,0 +1,727 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-card: #1c2128;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-muted: #8b949e;
+    --accent: #58a6ff;
+    --accent-hover: #79c0ff;
+    --crypto: #d2a8ff;
+    --rev: #ff7b72;
+    --forensics: #7ee787;
+    --misc: #ffa657;
+    --web: #58a6ff;
+    --pwn: #f778ba;
+    --osint: #79c0ff;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+}
+
+.site-title {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.nav-subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+    flex: 1;
+}
+
+footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* Search Box */
+.search-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.6rem 1rem;
+    margin-top: 0.75rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+.search-box::placeholder {
+    color: var(--text-muted);
+}
+
+.search-box:focus {
+    border-color: var(--accent);
+}
+
+/* Index Page */
+.search-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-row .search-box {
+    margin-top: 0;
+}
+
+.search-count {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.index-header {
+    margin-bottom: 2rem;
+}
+
+.index-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+}
+
+.solve-count {
+    color: var(--text-muted);
+}
+
+.category-section {
+    margin-bottom: 2.5rem;
+}
+
+.category-section h2 {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.challenge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.75rem;
+}
+
+.challenge-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    transition: border-color 0.15s, background 0.15s;
+    position: relative;
+}
+
+.challenge-card:hover {
+    border-color: var(--accent);
+    background: #1f2937;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+}
+
+.author-link {
+    position: relative;
+    z-index: 1;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.author-link:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+.card-name {
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.card-flag {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    word-break: break-all;
+}
+
+/* Author */
+.card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.15rem 0.75rem;
+}
+
+.card-author, .card-credit {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.writeup-author {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-left: 0.5rem;
+}
+
+.writeup-credit {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-left: 0.5rem;
+}
+
+.credit-link {
+    position: relative;
+    z-index: 1;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.credit-link:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+/* Category Badges */
+.category-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.cat-crypto { background: rgba(210, 168, 255, 0.15); color: var(--crypto); }
+.cat-rev { background: rgba(255, 123, 114, 0.15); color: var(--rev); }
+.cat-forensics { background: rgba(126, 231, 135, 0.15); color: var(--forensics); }
+.cat-misc { background: rgba(255, 166, 87, 0.15); color: var(--misc); }
+.cat-web { background: rgba(88, 166, 255, 0.15); color: var(--web); }
+.cat-pwn { background: rgba(247, 120, 186, 0.15); color: var(--pwn); }
+.cat-osint { background: rgba(121, 192, 255, 0.15); color: var(--osint); }
+
+/* Challenge Info Card (CTFd-style) */
+.challenge-info {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.challenge-info-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.challenge-info-left {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.challenge-info-name {
+    font-size: 1.35rem;
+    margin: 0;
+}
+
+.challenge-info-attribution {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.challenge-info-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.challenge-info-value {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.challenge-info-desc {
+    color: var(--text);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+}
+
+.challenge-info-desc p {
+    margin: 0 0 0.5rem;
+}
+
+.challenge-info-desc p:last-child {
+    margin-bottom: 0;
+}
+
+.challenge-info-desc code {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 0.85em;
+    background: rgba(110, 118, 129, 0.2);
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+}
+
+.challenge-info-connection {
+    margin-bottom: 0.75rem;
+}
+
+.challenge-info-connection code {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 0.9rem;
+    background: rgba(110, 118, 129, 0.2);
+    padding: 0.3em 0.6em;
+    border-radius: 4px;
+}
+
+.challenge-info-bottom {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border);
+}
+
+.challenge-info-files {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.challenge-info-file {
+    display: inline-block;
+    background: rgba(88, 166, 255, 0.15);
+    color: var(--accent);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+.challenge-info-file:hover {
+    background: rgba(88, 166, 255, 0.3);
+}
+
+.challenge-info-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.challenge-info-tag {
+    display: inline-block;
+    background: rgba(110, 118, 129, 0.2);
+    color: var(--text-muted);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+/* Writeup Meta */
+.writeup-meta {
+    margin-bottom: 1.5rem;
+}
+
+.writeup-meta h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Writeup Page */
+.writeup-header {
+    margin-bottom: 1rem;
+}
+
+.back-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+}
+
+.back-link:hover {
+    color: var(--accent-hover);
+}
+
+.writeup-header h1 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.writeup-body {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.writeup-body h1 { font-size: 1.5rem; margin: 1.5rem 0 0.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+.writeup-body h2 { font-size: 1.3rem; margin: 1.5rem 0 0.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
+.writeup-body h3 { font-size: 1.1rem; margin: 1.25rem 0 0.5rem; }
+.writeup-body h4 { font-size: 1rem; margin: 1rem 0 0.5rem; color: var(--text-muted); }
+.writeup-body h1:first-child { display: none; }
+
+.writeup-body p {
+    margin-bottom: 0.75rem;
+}
+
+.writeup-body a {
+    color: var(--accent);
+}
+
+.writeup-body ul, .writeup-body ol {
+    margin: 0.5rem 0 1rem 1.5rem;
+}
+
+.writeup-body li {
+    margin-bottom: 0.3rem;
+}
+
+.writeup-body code {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 0.875em;
+    background: rgba(110, 118, 129, 0.2);
+    padding: 0.15em 0.35em;
+    border-radius: 4px;
+}
+
+.writeup-body pre {
+    background: #0d1117;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 0.75rem 0 1rem;
+}
+
+.writeup-body pre code {
+    background: none;
+    padding: 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.writeup-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.75rem 0 1rem;
+    font-size: 0.9rem;
+}
+
+.writeup-body th, .writeup-body td {
+    border: 1px solid var(--border);
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+}
+
+.writeup-body th {
+    background: var(--bg-card);
+    font-weight: 600;
+}
+
+.writeup-body blockquote {
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    color: var(--text-muted);
+    margin: 0.75rem 0;
+}
+
+.writeup-body strong {
+    color: #fff;
+}
+
+/* Author Blurbs */
+.author-blurb {
+    border-left: 3px solid var(--misc);
+    background: rgba(255, 166, 87, 0.06);
+    border-radius: 0 6px 6px 0;
+    padding: 0.75rem 1rem;
+    margin: 0.75rem 0;
+}
+
+.author-blurb-header {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--misc);
+    margin-bottom: 0.4rem;
+}
+
+.author-blurb-content {
+    color: var(--text-muted);
+}
+
+.author-blurb-content p:last-child {
+    margin-bottom: 0;
+}
+
+.writeup-body hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.5rem 0;
+}
+
+/* Syntax highlighting - minimal */
+.codehilite .k, .codehilite .kn, .codehilite .kd { color: var(--rev); }
+.codehilite .s, .codehilite .s1, .codehilite .s2, .codehilite .sd { color: var(--forensics); }
+.codehilite .c, .codehilite .c1, .codehilite .cm { color: var(--text-muted); font-style: italic; }
+.codehilite .n, .codehilite .nf, .codehilite .nb { color: var(--crypto); }
+.codehilite .mi, .codehilite .mf, .codehilite .mh { color: var(--osint); }
+.codehilite .o, .codehilite .p { color: var(--text); }
+
+/* Solve Scripts Section */
+.scripts-section {
+    margin-top: 2rem;
+}
+
+.scripts-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.4rem;
+}
+
+.script-block {
+    margin-bottom: 1.5rem;
+}
+
+.script-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    padding: 0.5rem 1rem;
+}
+
+.script-filename {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.script-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.copy-btn, .download-btn {
+    background: rgba(88, 166, 255, 0.15);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-family: inherit;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+
+.copy-btn:hover, .download-btn:hover {
+    background: rgba(88, 166, 255, 0.3);
+}
+
+.script-code {
+    background: #0d1117;
+    border: 1px solid var(--border);
+    border-radius: 0 0 6px 6px;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 0;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.script-code code {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--text);
+}
+
+/* Nav */
+.nav-home {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.nav-home:hover {
+    color: var(--accent);
+}
+
+.nav-sep {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Home Page */
+.home-header {
+    margin-bottom: 2rem;
+}
+
+.home-header h1 {
+    font-size: 2rem;
+}
+
+.ctf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.ctf-card-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.ctf-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.ctf-card:hover {
+    border-color: var(--accent);
+    background: #1f2937;
+}
+
+.ctf-card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.25rem;
+}
+
+.ctf-card-ctftime {
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+}
+
+.ctf-card-ctftime:hover {
+    border-color: var(--accent);
+    color: #fff;
+}
+
+.ctf-card-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.ctf-card-date {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.ctf-card-placement {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.nav-team-link {
+    margin-left: auto;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.15s;
+}
+
+.nav-team-link:hover {
+    color: var(--accent);
+}
+
+@media (max-width: 640px) {
+    main { padding: 1rem; }
+    .writeup-body { padding: 1.25rem; }
+    .challenge-grid { grid-template-columns: 1fr; }
+    .ctf-grid { grid-template-columns: 1fr; }
+    .index-header h1 { font-size: 1.5rem; }
+    .home-header h1 { font-size: 1.5rem; }
+}

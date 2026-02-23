@@ -1,0 +1,25 @@
+name: The Brig
+author: Sean
+category: misc
+description: 'Well captain, it looks like your pirate ways finally caught up to you.
+  You have found yourself in the brig on your way to Newgate Prison to await your
+  execution. You may be able to excape, but you have to get creative...
+
+
+  The flag is located at `/flag.txt`'
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{1--1--1--1--111--111--1111_e1893d6cdf}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+connection_info: nc chal.bearcatctf.io 36990
+files:
+- dist/brig.py

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ ctf_name }} Writeups{% endblock %}</title>
+    <link rel="stylesheet" href="{{ '../' * depth }}style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ '../' * depth }}" class="nav-home">Home</a>
+            <span class="nav-sep">/</span>
+            <a href="{{ '../' * (depth - 1) }}" class="site-title">{{ ctf_name }}</a>
+            <span class="nav-subtitle">Writeups</span>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; KobiWare {{ year }}</p>
+    </footer>
+</body>
+</html>

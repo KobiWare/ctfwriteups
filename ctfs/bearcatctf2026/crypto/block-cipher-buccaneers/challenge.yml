@@ -1,0 +1,23 @@
+name: Block Cipher Buccaneers
+author: Jacob
+category: crypto
+description: 'Our operatives aquired a series of images containing important information.
+  We got to two of the images before they were encypted, but one still was. Can you
+  figure out what the whole image says?
+
+  Our best cryptanalysts don''t think it''s possible to crack the password.'
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{BLoCk_c1pH3r_Mod3}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/images.zip

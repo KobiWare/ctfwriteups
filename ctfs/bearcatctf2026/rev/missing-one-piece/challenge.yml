@@ -1,0 +1,21 @@
+name: Missing One Piece
+author: Ian
+category: rev
+description: I did a puzzle but was missing One Piece. Some say that the One Piece
+  never actually existed, that it was just the friends we made along the way. But
+  I think the One Piece is actually a flag. I guess it would depend on your computer.
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{I_gU3S5_7hAt_Wh1t3BeArD_6uY_W45_TRu7h1n6!}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/missing_one_piece

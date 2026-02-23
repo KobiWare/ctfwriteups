@@ -1,0 +1,20 @@
+name: Cursed Map
+author: Sean
+category: forensics
+description: Legend has it that there exists a map that leads to the greatest treasure
+  of all, only the map is cursed so that anyone who opens it dies...
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{00H_1M_bR07l1_f33ls_S0_g0Od!}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/map.pcap

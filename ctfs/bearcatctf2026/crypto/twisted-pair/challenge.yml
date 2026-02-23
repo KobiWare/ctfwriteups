@@ -1,0 +1,20 @@
+name: Twisted Pair
+author: Sean
+category: crypto
+description: Pirates of the Caribbean -- Directed by Neil Breen
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{D0n7_g37_m3_Tw157eD}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/twisted.py
+- dist/output.txt

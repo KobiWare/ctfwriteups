@@ -1,0 +1,21 @@
+name: Ghost Ship
+author: Ian
+category: misc
+description: A ghost ship has appeared! It seems to be slowly circling us, and every
+  so often a ghost bird flies overhead and drops a piece of parchment with a bunch
+  of symbols on it. We don't know what it means, but that's what you're here for!
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{N0_moR3_H4un71n6!_N0_M0rE_Gh0575!}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/ghost_ship

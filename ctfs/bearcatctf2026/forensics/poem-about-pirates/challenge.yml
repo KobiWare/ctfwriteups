@@ -1,0 +1,21 @@
+name: Poem About Pirates
+author: Ian
+category: forensics
+description: I like to write poems about pirates with help from my robot best friends.
+  I wrote the flag for this challenge into one of them, but then I overwrote it, and
+  now I can't find it! Could you help me out?
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{1gN0r3_4ll_PreV1OU5_1n57Ruc7iOns}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/poems.zip

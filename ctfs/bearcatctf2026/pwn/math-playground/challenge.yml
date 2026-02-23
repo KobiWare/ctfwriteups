@@ -1,0 +1,23 @@
+name: Math Playground
+author: Sean
+category: pwn
+description: "My python calculator was a total disaster, so I decided to write one\
+  \ in c since c is known for being a secure programming language right?\r\n\r\n**Be\
+  \ aware: the layout of the program on remote may be *slightly* different than the\
+  \ containerized version.**"
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{y0U_mu57_r3411y_h473_maTH}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+connection_info: nc chal.bearcatctf.io 11231
+files:
+- dist/math_playground.zip

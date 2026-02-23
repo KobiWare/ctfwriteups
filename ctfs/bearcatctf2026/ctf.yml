@@ -1,0 +1,12 @@
+name: BearcatCTF 2026
+date: 2026-02-22
+placement: 1st
+ctftime_url: https://ctftime.org/event/3046/
+categories:
+  - rev
+  - osint
+  - web
+  - crypto
+  - forensics
+  - pwn
+  - misc

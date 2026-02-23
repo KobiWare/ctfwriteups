@@ -1,0 +1,28 @@
+name: Boarding of the Black Pearl
+author: Gabe
+category: forensics
+description: 'The legendary Black Pearl was intercepted by the Royal Navy while sailing
+  under cover of darkness.
+
+
+  During the boarding, the Navy seized a document believed to contain contraband.
+  A network capture recovered from the raid is all that remains.
+
+
+  Analyze the traffic, reconstruct what was looted, and uncover the secret the Pearl
+  was trying to hide.'
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- "BCCTF{b1@ckp3@r1_10$t_1t$_tr3@$ur3}"
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/blackpearl_vs_royalnavy.pcap

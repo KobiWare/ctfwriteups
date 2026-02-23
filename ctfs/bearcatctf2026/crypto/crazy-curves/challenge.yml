@@ -1,0 +1,22 @@
+name: Crazy Curves
+author: Sean
+category: crypto
+description: The crew found this treasure map that seems to lead to the greatest treasure
+  of all... friendship. But no matter how we follow it, it keeps leading us back to
+  where we started, can you crack it?
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{y0U_sp1n_mE_r1gt_r0und}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/crazy_curve.sage
+- dist/output.txt

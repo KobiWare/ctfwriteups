@@ -1,0 +1,21 @@
+name: Captain Morgan
+author: Sean
+category: rev
+description: There are rumors that the legendary Captain Morgan left behind a sizable
+  stash of non-alcoholic beverage. The only problem is that his tomb is locked with
+  an indecipherable code.
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{Y00_hO_Ho_anD_4_B07Tl3_oF_rUm}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/chall.py

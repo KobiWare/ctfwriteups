@@ -1,0 +1,25 @@
+name: Da Brown's Revenge
+author: J
+category: misc
+description: 'We have located the servers of one of our greatest enemies: The guy
+  who invented smart toasters. He has secured his servers with the latest in garage
+  door opener technology. It utilizes a rolling code that changes every time and only
+  accepts binary. We have no chance of predicting the next code without the seed or
+  algorithm used, so you''ll need to find another way in. Hurry, before he finishes
+  his ultimate weapon: The electric doorknob.'
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{i_5pe11ed_de_brujin_wr0ng_7689472}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+connection_info: nc chal.bearcatctf.io 19679
+files:
+- dist/CodeRoller.py

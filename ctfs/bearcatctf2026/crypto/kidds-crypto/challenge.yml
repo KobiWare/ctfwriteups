@@ -1,0 +1,20 @@
+name: Kidds Crypto
+author: Sean
+category: crypto
+description: Captain Kidd sent me his RSA parameters, something tells me that he is
+  trying to trick me.
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{y0U_h4V3_g0T_70_b3_K1DD1n9_Me}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/kidd.txt

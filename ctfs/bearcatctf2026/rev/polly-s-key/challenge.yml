@@ -1,0 +1,23 @@
+name: Polly's Key
+author: Ian
+category: rev
+description: I once met a guy who told me a strange story about an interaction he
+  had with a pirate and his parrot. The pirate offered his treasure in exchange for
+  some arbitrary key that the pirate AND his parrot had to approve of. The pirate
+  and parrot always spoke at the same time, so they were hard to understand. Weirdest
+  of all, the pirate and parrot spoke in different languages...
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{Th3_P05h_9oLly61Ot_p4rr0t}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/pollys_key

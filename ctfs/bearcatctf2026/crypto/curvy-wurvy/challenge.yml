@@ -1,0 +1,20 @@
+name: Curvy Wurvy
+author: Sean
+category: crypto
+description: We all love curves right? Well here at Curvy Wurvy we have the very best!
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{NOW_7h0s3_4r3_s0m3_curv35}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+connection_info: nc chal.bearcatctf.io 47798
+files:
+- dist/curvy_wurvy.py

@@ -1,0 +1,19 @@
+name: Unknown Transmission
+author: Jacob
+category: forensics
+description: Our team has intercepted an unknown tranmission. Can you crack it?
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{4mAt3uR_r4di0_ru135}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/mysterious-audio.wav.gz

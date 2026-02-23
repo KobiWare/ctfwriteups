@@ -1,0 +1,19 @@
+name: Sea Story
+author: Nate
+category: pwn
+description: I created a pirate story simulator
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags: []
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+connection_info: nc chal.bearcatctf.io 40385
+files:
+- dist/vuln

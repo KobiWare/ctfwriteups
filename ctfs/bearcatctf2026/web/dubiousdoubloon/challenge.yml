@@ -1,0 +1,20 @@
+name: DubiousDoubloon
+author: Ben
+category: web
+description: "The captain claims this coin is cursed, but I think he's just cheating.\
+  \ Can you beat the odds and get a streak of **15 heads**?\r\n\r\n*Note ignore the\
+  \ part of the website where it says you need 10 heads. The coin lies*"
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{Fl1p&F1sH}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+connection_info: http://chal.bearcatctf.io:33099

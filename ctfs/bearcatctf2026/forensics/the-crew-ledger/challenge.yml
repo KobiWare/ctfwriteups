@@ -1,0 +1,21 @@
+name: The Crew Ledger
+author: Sean
+category: forensics
+description: Some members of my crew have gotten ideas in their head and I worry that
+  some secret information may have gotten into the wrong hands. Verify that everything
+  is how it should be, will ya?
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{X_M4rk3Sss_th3_Sp0T}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/emails.tar.gz

@@ -1,0 +1,18 @@
+name: Quartermaster Store
+author: Sean
+category: web
+description: Welcome to the Quartermaster store, for all your piracy needs!
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{N0_H0nor_AmonG_Th3vEs}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+connection_info: http://chal.bearcatctf.io:43363

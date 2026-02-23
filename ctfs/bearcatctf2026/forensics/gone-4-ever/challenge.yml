@@ -1,0 +1,20 @@
+name: Gone 4 Ever
+author: Sean
+category: forensics
+description: I really love taking pictures of numbers, but one of these numbers holds
+  a dark secret. Can you discover which one?
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{GonE_But_nOt_4GottEn}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/files.zip

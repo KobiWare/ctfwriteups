@@ -1,0 +1,22 @@
+name: Treasure Hunt 1 - Message in a Bottle
+author: Ian
+category: crypto
+description: We found a bottle floating down the Ohio River in downtown Cincinnati.
+  After proper sanitization (because that river is seriously polluted), we cracked
+  it open and found this note inside! We're familiar with this cipher, but decryption
+  results in gibberish. Perhaps there's some variation we aren't aware of...
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{la_buse_strikes_again!}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/message_bottle.jpg

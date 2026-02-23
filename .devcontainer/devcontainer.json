@@ -1,0 +1,17 @@
+{
+	"name": "Python 3 Debian",
+	"image": "mcr.microsoft.com/devcontainers/python:3.11-bookworm",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "bash"
+			},
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance"
+			]
+		}
+	},
+	"remoteUser": "vscode",
+	"postCreateCommand": "pip install --user -r requirements.txt || echo 'No requirements.txt found'"
+}

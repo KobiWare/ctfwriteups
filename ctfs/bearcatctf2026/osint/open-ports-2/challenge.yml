@@ -1,0 +1,21 @@
+name: Open Ports 2
+author: Ian
+category: osint
+description: "We have another set of messages, but can't even figure out what ship\
+  \ they're talking about! Not to mention the time period... Same as last time, can\
+  \ you figure out the port they're talking about?\r\n\r\nEnter your answer in the\
+  \ form: `BCCTF{Name_of_city_port_is_in}`"
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags: []
+tags: []
+hints: []
+state: visible
+max_attempts: 5
+files:
+- dist/openports2.txt

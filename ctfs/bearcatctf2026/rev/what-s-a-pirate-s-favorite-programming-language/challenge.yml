@@ -1,0 +1,20 @@
+name: What's a Pirate's Favorite Programming Language?
+author: Ian
+category: rev
+description: Surely it's A. Or B. Or D. Or E. Or F. Or J. Or K. Or L. Or M. Or P.
+  Or Q. Or S. Or T. Or V. Or Y. But certainly not C.
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{Pr3t7y_5UR3_1tS_C!!1!}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/FavoriteProgrammingLanguage

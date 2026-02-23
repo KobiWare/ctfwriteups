@@ -1,0 +1,20 @@
+name: PNG(Polly_Needs_Grog)
+author: Braden
+category: misc
+description: The ship bird be acting strange as of late, can ye reckon why she might
+  be so?
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{ARRRRRGB_1s_n34T!}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/image.png

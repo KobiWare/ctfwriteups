@@ -1,0 +1,21 @@
+name: Blackbeard's Tomb
+author: Sean
+category: rev
+description: There have been reports of this mysterious bit of malware called "Blackbeard's
+  Tomb" going around the internet. It seems to be asking for a flag, but we don't
+  know that it means, can you figure it out?
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{Buri3d_at_sea_Ent0m3d_amm0nG_th3_w4v3S}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/tomb

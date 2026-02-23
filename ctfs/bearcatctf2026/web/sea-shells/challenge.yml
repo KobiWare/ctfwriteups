@@ -1,0 +1,24 @@
+name: Sea Shells
+author: Hugh
+category: web
+description: "Ahoy, Code-Breakers!\r\n\r\nThe Dread Captain Next thinks his fortress\
+  \ is impenetrable, but he’s left the ship's articles—the very blueprints of how\
+  \ his crew behaves—unguarded. We’ve heard whispers that if a clever pirate can poison\
+  \ the source they can rewrite the fundamental laws of the ship itself.\r\n\r\nForging\
+  \ your Next-Action scrolls is the key to mutiny. When you control the prototype,\
+  \ the crew stops listening to the Captain and starts listening to you. Seize the\
+  \ shell, and the flag shall be yours!"
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{R34c7_S3rv3r_C0mp0n3n7s_RCE_2025}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+connection_info: http://chal.bearcatctf.io:38270/

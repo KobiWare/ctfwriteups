@@ -1,0 +1,21 @@
+name: Battleship for one
+author: Sean
+category: misc
+description: All real pirates must engage in fierce sea battles to earn their keep.
+  But what about lonely pirates with no one to battle?
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{S0r7_0f_L1k3_SuD0ku}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+connection_info: nc chal.bearcatctf.io 45457
+files:
+- dist/battleship.py

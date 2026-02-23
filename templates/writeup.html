@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}{{ name }} - {{ ctf_name }}{% endblock %}
+
+{% block content %}
+<article class="writeup">
+    <div class="writeup-header">
+        <a href="../" class="back-link">&larr; All Challenges</a>
+    </div>
+
+    <div class="challenge-info">
+        <div class="challenge-info-top">
+            <div class="challenge-info-left">
+                <h2 class="challenge-info-name">{{ chal_yml.name }}</h2>
+                {% if chal_yml.author %}
+                <span class="challenge-info-attribution">by {{ chal_yml.author }}</span>
+                {% endif %}
+            </div>
+            <div class="challenge-info-right">
+                <span class="category-badge cat-{{ category }}">{{ category }}</span>
+                <span class="challenge-info-value">{{ chal_yml.value }} pts</span>
+            </div>
+        </div>
+        <div class="challenge-info-desc">{{ desc_html }}</div>
+        {% if chal_yml.connection_info %}
+        <div class="challenge-info-connection"><code>{{ chal_yml.connection_info }}</code></div>
+        {% endif %}
+        {% if dist_files or chal_yml.tags %}
+        <div class="challenge-info-bottom">
+            {% if dist_files %}
+            <div class="challenge-info-files">
+                {% for file in dist_files %}
+                <a href="../files/{{ slug }}/{{ file }}" class="challenge-info-file" download>{{ file }}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% if chal_yml.tags %}
+            <div class="challenge-info-tags">
+                {% for tag in chal_yml.tags %}
+                <span class="challenge-info-tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="writeup-meta">
+        <h1>Writeup</h1>
+        <span class="writeup-author">Author: {% if authors %}{% for a in authors %}{% if not loop.first %}, {% endif %}<a href="{{ a.url }}" class="author-link">{{ a.name }}</a>{% endfor %}{% else %}-{% endif %}</span>
+        <span class="writeup-credit">Credit: {% for c in credits %}{% if not loop.first %}, {% endif %}<a href="{{ c.url }}" class="credit-link">{{ c.name }}</a>{% endfor %}</span>
+    </div>
+
+    <div class="writeup-body">
+        {{ content }}
+    </div>
+
+    {% if scripts %}
+    <div class="scripts-section">
+        <h2>Solve Scripts</h2>
+        {% for script in scripts %}
+        <div class="script-block">
+            <div class="script-header">
+                <span class="script-filename">{{ script.filename }}</span>
+                <div class="script-actions">
+                    <button class="copy-btn" onclick="copyScript(this)" data-target="script-{{ loop.index }}">Copy</button>
+                    <a href="../scripts/{{ slug }}/{{ script.filename }}" class="download-btn" download>Download</a>
+                </div>
+            </div>
+            <pre class="script-code" id="script-{{ loop.index }}"><code>{{ script.content }}</code></pre>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</article>
+
+<script>
+function copyScript(btn) {
+    const id = btn.getAttribute('data-target');
+    const code = document.getElementById(id).textContent;
+    navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = 'Copy', 1500);
+    });
+}
+</script>
+{% endblock %}

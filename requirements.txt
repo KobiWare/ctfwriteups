@@ -1,0 +1,5 @@
+markdown
+Jinja2
+pyyaml
+python-frontmatter
+livereload

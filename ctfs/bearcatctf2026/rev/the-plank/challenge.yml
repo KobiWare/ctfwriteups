@@ -1,0 +1,21 @@
+name: The Plank
+author: Sean
+category: rev
+description: "You have been forced to walk the plank. There are rumors of some who\
+  \ have survived, but those are only rumors... right?\r\n\r\nThe flag is in the format\
+  \ BCCTF{.\\*}\r\n**This challenge only works on python3.12**"
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{y0U_mUs7_w4lK_A_f1N3_L1n3}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/plank.py

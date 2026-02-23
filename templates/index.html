@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="index-header">
+    <div class="search-row">
+        <input type="text" id="challenge-search" class="search-box" placeholder="Search challenges...">
+        <span class="search-count" id="search-count">Count: {{ challenges|length }}</span>
+    </div>
+</div>
+
+{% for category, chals in categories.items() %}
+<section class="category-section" data-category="{{ category|lower }}">
+    <h2><span class="category-badge cat-{{ category|lower }}">{{ category }}</span></h2>
+    <div class="challenge-grid">
+        {% for chal in chals %}
+        <div class="challenge-card" data-name="{{ chal.name|lower }}" data-category="{{ category|lower }}" data-flag="{{ chal.flag|lower }}" data-authors="{{ chal.authors|map(attribute='name')|join(', ')|lower }}" data-credits="{{ chal.credits|map(attribute='name')|join(', ')|lower }}">
+            <a href="{{ chal.slug }}/" class="card-link"><span class="card-name">{{ chal.name }}</span></a>
+            <span class="card-meta"><span class="card-author">Author: {% if chal.authors %}{% for a in chal.authors %}{% if not loop.first %}, {% endif %}<a href="{{ a.url }}" class="author-link">{{ a.name }}</a>{% endfor %}{% else %}-{% endif %}</span><span class="card-credit">Credit: {% for c in chal.credits %}{% if not loop.first %}, {% endif %}<a href="{{ c.url }}" class="credit-link">{{ c.name }}</a>{% endfor %}</span></span>
+            <span class="card-flag">{{ chal.flag }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endfor %}
+
+<script>
+document.getElementById('challenge-search').addEventListener('input', function() {
+    const q = this.value.toLowerCase();
+    let count = 0;
+    document.querySelectorAll('.challenge-card').forEach(function(card) {
+        const match = card.dataset.name.includes(q) || card.dataset.category.includes(q) || card.dataset.flag.includes(q) || card.dataset.authors.includes(q) || card.dataset.credits.includes(q);
+        card.style.display = match ? '' : 'none';
+        if (match) count++;
+    });
+    document.querySelectorAll('.category-section').forEach(function(section) {
+        const visible = section.querySelectorAll('.challenge-card:not([style*="display: none"])');
+        section.style.display = visible.length ? '' : 'none';
+    });
+    document.getElementById('search-count').textContent = 'Count: ' + count;
+});
+</script>
+{% endblock %}

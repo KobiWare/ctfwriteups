@@ -1,0 +1,20 @@
+name: The Boy is Quine
+author: Sean
+category: misc
+description: Pirate
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{1t5_mY_t1m3_t0_sh1n3}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+connection_info: nc chal.bearcatctf.io 31806
+files:
+- dist/main.py

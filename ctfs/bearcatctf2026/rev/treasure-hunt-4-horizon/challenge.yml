@@ -1,0 +1,22 @@
+name: Treasure Hunt 4 - Horizon
+author: Ian
+category: rev
+description: Hard drive recovery is coming along well. We're still looking for anything
+  that "water guy" may consider his treasure. We did find this binary in a folder
+  called `NoFlagsHiddenHere`. We have a sneaking suspicion that he may be lying about
+  that, so we have given you the honors of finding the flag hidden in the binary.
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{5LiD1n6_W1nd0w5_B3_L1k3:1m_C0nvo1v1nG}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+files:
+- dist/horizon

@@ -1,0 +1,24 @@
+name: GAMBL
+author: Ian
+category: pwn
+description: Gambling is all the rage these days. You can bet on anything! Well, I
+  haven't seen anybody betting on which digital piracy groups will release the next
+  cracked software. So I made it myself! I'm calling it `GAMBL`, without the E because
+  all new and cool tech startups can't comprehend spelling. Could you find out if
+  there's an infinite money glitch or something? I mean, there isn't, but there's
+  a flag for you if one exists.
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags: []
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+connection_info: nc chal.bearcatctf.io 22723
+files:
+- dist/speculative_piracy.c

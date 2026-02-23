@@ -1,0 +1,20 @@
+name: Pickme
+author: Sean
+category: crypto
+description: Pickme pirate or something. Idk man I suck at writing challenge descriptions.
+type: dynamic
+value: 500
+extra:
+  initial: 500
+  decay: 50
+  minimum: 50
+  function: logarithmic
+flags:
+- BCCTF{R54_Br0K3n_C0nF1rm3d????}
+tags: []
+hints: []
+state: visible
+max_attempts: 0
+connection_info: nc chal.bearcatctf.io 56025
+files:
+- dist/server.py
