@@ -1,9 +1,110 @@
 ---
-author:
-credit: Tyler
+author: OpenCode
+credit: Tyler, OpenCode
 ---
+
 ## Solution
-TODO
+
+### Analysis
+
+The challenge provides a Python script (`CodeRoller.py`) that simulates a rolling code security system - similar to garage door openers that use rolling codes for security.
+
+The server:
+1. Generates a random 12-bit code (4096 possible values)
+2. Accepts binary input (only 0s and 1s)
+3. Checks if the generated code appears anywhere in the user's input
+4. Requires 20 consecutive correct guesses to get the flag
+
+The key constraint is a 4107 character limit on input.
+
+### Approach
+
+**Step 1: Understand the problem.**
+With 4096 possible 12-bit codes and only 4107 characters of input, we can't simply send all codes separately (4096 * 12 = 49152 characters).
+
+**Step 2: Use a De Bruijn sequence.**
+A De Bruijn sequence B(2, 12) is a cyclic sequence that contains every possible 12-bit binary string as a substring exactly once. The length is:
+- 2^12 = 4096 (the sequence itself)
+- + 11 (to wrap around and include all codes as substrings)
+- = 4107 characters
+
+This exactly fits our character limit!
+
+The sequence can be generated using the classic algorithm:
+
+```python
+def de_bruijn(k, n):
+    a = [0] * (k * n)
+    sequence = []
+    
+    def db(t, p):
+        if t > n:
+            if n % p == 0:
+                sequence.extend(a[1:p+1])
+        else:
+            a[t] = a[t - p]
+            db(t + 1, p)
+            for j in range(a[t - p] + 1, k):
+                a[t] = j
+                db(t + 1, t)
+    
+    db(1, 1)
+    return ''.join(str(d) for d in sequence)
+```
+
+**Step 3: Connect and solve.**
+Since a De Bruijn sequence contains ANY 12-bit code as a substring, sending this sequence guarantees a correct guess every round. We simply reconnect and send the same sequence 20 times.
+
+### Solve Script
+
+```python
+#!/usr/bin/env python3
+import socket
+
+def de_bruijn(k, n):
+    """Generate de Bruijn sequence for alphabet size k and subsequences of length n."""
+    a = [0] * (k * n)
+    sequence = []
+    
+    def db(t, p):
+        if t > n:
+            if n % p == 0:
+                sequence.extend(a[1:p+1])
+        else:
+            a[t] = a[t - p]
+            db(t + 1, p)
+            for j in range(a[t - p] + 1, k):
+                a[t] = j
+                db(t + 1, t)
+    
+    db(1, 1)
+    return ''.join(str(d) for d in sequence)
+
+# Generate de Bruijn sequence for k=2, n=12
+seq = de_bruijn(2, 12)
+# Add first 11 chars to make it cyclic (wrapping)
+seq_full = seq + seq[:11]  # 4107 chars - exactly the limit
+
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect(('chal.bearcatctf.io', 19679))
+
+# Read initial prompt
+s.recv(1024)
+
+# Send the De Bruijn sequence 20 times
+for i in range(20):
+    s.sendall((seq_full + '\n').encode())
+    data = s.recv(4096).decode()
+    print(f'Round {i+1}: {data.strip()}')
+    if 'BCCTF{' in data:
+        break
+
+s.close()
+```
+
+### Key Insight
+
+The flag `i_5pe11ed_de_brujin_wr0ng` confirms the intended solution - a De Bruijn sequence! Rolling code systems that only accept binary input can be defeated by sending a De Bruijn sequence that covers the entire code space.
 
 ## Flag
 
