@@ -59,10 +59,6 @@ def slugify(name, used=None):
     return s
 
 
-def extract_flag(md_text):
-    matches = re.findall(r"BCCTF\{[^}]+\}", md_text)
-    return matches[-1] if matches else ""
-
 
 def discover_ctfs():
     """Find all CTFs by scanning ctfs/*/ctf.yml."""
@@ -129,7 +125,8 @@ def discover_challenges(ctf_slug, allowed_categories=None):
                         })
 
             md_text = post.content
-            flag = extract_flag(md_text)
+            flags = chal_yml.get("flags", [])
+            flag = flags[0] if flags else ""
 
             # Check for dist files
             dist_dir = chal_dir / "dist"
