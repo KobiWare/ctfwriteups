@@ -12,6 +12,9 @@ import frontmatter
 import markdown
 import yaml
 from jinja2 import Environment, FileSystemLoader
+from pygments import highlight
+from pygments.lexers import get_lexer_by_name, TextLexer
+from pygments.formatters import HtmlFormatter
 
 ROOT = Path(__file__).parent
 TEMPLATES = ROOT / "templates"
@@ -117,9 +120,15 @@ def discover_challenges(ctf_slug, allowed_categories=None):
                     if fpath.is_file():
                         content = fpath.read_text()
                         lang = LANG_MAP.get(fpath.suffix, "")
+                        try:
+                            lexer = get_lexer_by_name(lang) if lang else TextLexer()
+                        except Exception:
+                            lexer = TextLexer()
+                        highlighted = highlight(content, lexer, HtmlFormatter(nowrap=True))
                         scripts.append({
                             "filename": fpath.name,
                             "content": html.escape(content),
+                            "highlighted": highlighted,
                             "lang": lang,
                             "path": fpath,
                         })

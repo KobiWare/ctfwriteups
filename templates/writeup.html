@@ -67,7 +67,7 @@
                     <a href="../scripts/{{ slug }}/{{ script.filename }}" class="download-btn" download>Download</a>
                 </div>
             </div>
-            <pre class="script-code" id="script-{{ loop.index }}"><code>{{ script.content }}</code></pre>
+            <div class="codehilite"><pre class="script-code" id="script-{{ loop.index }}"><code>{{ script.highlighted }}</code></pre></div>
         </div>
         {% endfor %}
     </div>
