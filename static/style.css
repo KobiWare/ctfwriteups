@@ -76,6 +76,38 @@ footer {
     text-align: center;
     color: var(--text-muted);
     font-size: 0.85rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-sep {
+    color: var(--text-muted);
+}
+
+.footer-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.15s;
+}
+
+.footer-link:hover {
+    color: var(--accent);
+}
+
+.footer-github {
+    color: var(--text-muted);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    transition: color 0.15s;
+}
+
+.footer-github:hover {
+    color: var(--accent);
 }
 
 /* Search Box */

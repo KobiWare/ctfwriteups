@@ -34,9 +34,7 @@
             {% endfor %}
         </div>
     </main>
-    <footer>
-        <p>&copy; KobiWare {{ year }}</p>
-    </footer>
+    {% include "footer.html" %}
     <script>
     document.getElementById('ctf-search').addEventListener('input', function() {
         const q = this.value.toLowerCase();
