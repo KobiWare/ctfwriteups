@@ -8,7 +8,7 @@ This repo also contains all of the challenge files of each ctf we participate in
 
 ## Importing Challenges into CTFd
 
-Each CTF directory (e.g. `ctfs/bearcatctf2026/`) contains [ctfcli](https://github.com/CTFd/ctfcli)-compatible challenge files that can be imported directly into a [CTFd](https://github.com/CTFd/CTFd) instance. The `.ctf/config` file in each directory lists all available challenges.
+Each CTF directory (e.g. `ctfs/bearcatctf2026/`) contains [ctfcli](https://github.com/CTFd/ctfcli)-compatible challenge files that can be imported directly into a [CTFd](https://github.com/CTFd/CTFd) instance. The `.ctf/config` file in each directory lists all available challenges:
 
 ### Quick Start
 
