@@ -4,11 +4,11 @@ This is the repo for the KobiWare CTF Team's challenge solution writeups.
 
 The deployed website can be accessed here: https://ctfwriteups.kobiware.com
 
-This repo also contains all of the challenge files of each ctf we participate in, so, for the ones that don't rely on a remote server, you can use this as example ctf training. Below is an AI-generated guide on how to setup your own ctfd instance with our saved challenges.
+This repo also contains all of the challenge files of each ctf we participate in, so, for the ones that don't rely on a remote server, you can use this as example ctf training. Below is an AI-generated guide on how to setup your own ctfd instance with our saved challenges:
 
 ## Importing Challenges into CTFd
 
-Each CTF directory (e.g. `ctfs/bearcatctf2026/`) contains [ctfcli](https://github.com/CTFd/ctfcli)-compatible challenge files that can be imported directly into a [CTFd](https://github.com/CTFd/CTFd) instance. The `.ctf/config` file in each directory lists all available challenges:
+Each CTF directory (e.g. `ctfs/bearcatctf2026/`) contains [ctfcli](https://github.com/CTFd/ctfcli)-compatible challenge files that can be imported directly into a [CTFd](https://github.com/CTFd/CTFd) instance. The `.ctf/config` file in each directory lists all available challenges.
 
 ### Quick Start
 
