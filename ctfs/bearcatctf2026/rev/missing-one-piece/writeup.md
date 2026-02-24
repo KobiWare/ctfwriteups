@@ -1,6 +1,6 @@
 ---
 author: OpenCode
-credit: Tyler, OpenCode
+credit: OpenCode, Tyler
 ---
 
 ## Analysis
