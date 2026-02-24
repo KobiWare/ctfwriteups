@@ -12,8 +12,7 @@ def run_build():
         print(f"[Watcher] Build error: {e}")
 
 if __name__ == "__main__":
-    if not build_site.SITE.exists():
-        build_site.build()
+    build_site.build()
 
     server = Server()
 
