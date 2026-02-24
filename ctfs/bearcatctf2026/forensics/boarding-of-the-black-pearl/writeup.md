@@ -52,20 +52,6 @@ This decodes to the flag!
 
 The Royal Navy intercepted network traffic from their raid on the Black Pearl. The HTTP request to `/map.b64` was the Black Pearl attempting to transfer contraband (the flag) - but the network capture captured the evidence.
 
-### Solve Script
-
-```python
-#!/usr/bin/env python3
-import base64
-
-# The base64 data extracted from the HTTP response in the PCAP
-encoded_data = "QkNDVEZ7YjFAY2twM0ByMV8xMCR0XzF0JF90cjNAJHVyM30K"
-
-# Decode and print the flag
-flag = base64.b64decode(encoded_data).decode()
-print(f"Flag: {flag}")
-```
-
 ## Flag
 
 `BCCTF{b1@ckp3@r1_10$t_1t$_tr3@$ur3}`

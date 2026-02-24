@@ -58,19 +58,6 @@ Output:
 The legends have been proven true! BCCTF{I_gU3S5_7hAt_Wh1t3BeArD_6uY_W45_TRu7h1n6!}
 ```
 
-## Solve Script
-
-```bash
-#!/bin/bash
-# Solve script for missing-one-piece
-
-# Create the binary with the correct argv[0]
-ln -sf /home/kobisteve07/projects/ctfwriteups/ctfs/bearcatctf2026/rev/missing-one-piece/dist/missing_one_piece ./devilishFruit
-
-# Run with required environment variables
-PWD=/tmp/gogear5 ONE_PIECE=IS_REAL ./devilishFruit
-```
-
 ## Flag
 
 `BCCTF{I_gU3S5_7hAt_Wh1t3BeArD_6uY_W45_TRu7h1n6!}`

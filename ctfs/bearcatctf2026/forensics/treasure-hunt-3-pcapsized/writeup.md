@@ -64,31 +64,6 @@ print(result.decode())  # BCCTF{C0nS91cuoU5_cH4Nn31s_4M1r1T3?}
 
 The decoded 36 bytes are also valid base64 (`QkNDVEZ7QzBuUzkxY3VvVTVfY0g0Tm4zMXNfNE0xcjFUMz99`) which decodes to the same flag, confirming the last two `0x3d` values correspond to `=` padding characters.
 
-### Solve Script
-```python
-#!/usr/bin/env python3
-"""TCP covert channel decoder - extract flag from TCP flags field"""
-
-flags = [
-    0x10, 0x24, 0x0d, 0x03, 0x15, 0x04, 0x19, 0x3b,
-    0x10, 0x33, 0x01, 0x2e, 0x14, 0x33, 0x24, 0x31,
-    0x18, 0x37, 0x15, 0x2f, 0x15, 0x13, 0x15, 0x1f,
-    0x18, 0x34, 0x20, 0x34, 0x13, 0x26, 0x38, 0x33,
-    0x0c, 0x17, 0x0d, 0x1f, 0x0d, 0x04, 0x34, 0x31,
-    0x1c, 0x23, 0x05, 0x14, 0x0c, 0x33, 0x3d, 0x3d
-]
-
-# Build bitstream: each flag is 6 bits (URG ACK PSH RST SYN FIN)
-bits = ''.join(format(f, '06b') for f in flags)
-
-# Group into bytes
-result = bytearray()
-for i in range(0, len(bits), 8):
-    result.append(int(bits[i:i+8], 2))
-
-print(f"Flag: {result.decode()}")
-```
-
 The leetspeak in the flag decodes to: "Conspicuous channels, amirite?" -- a reference to how TCP flag covert channels are easily detectable by network monitoring tools.
 
 ## Flag
