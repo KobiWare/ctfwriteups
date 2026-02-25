@@ -137,9 +137,8 @@ def discover_challenges(ctf_slug, allowed_categories=None):
             flags = chal_yml.get("flags", [])
             flag = flags[0] if flags else ""
 
-            # Check for dist files
-            dist_dir = chal_dir / "dist"
-            dist_files = sorted(dist_dir.iterdir()) if dist_dir.is_dir() else []
+            # Get files listed in challenge.yml
+            chal_files = chal_yml.get("files", [])
 
             challenges.append({
                 "name": chal_yml["name"],
@@ -152,7 +151,7 @@ def discover_challenges(ctf_slug, allowed_categories=None):
                 "md_text": md_text,
                 "chal_yml": chal_yml,
                 "dir": f"{ctf_slug}/{cat_dir.name}/{chal_dir.name}",
-                "dist_files": dist_files,
+                "chal_files": chal_files,
             })
 
     return challenges
@@ -184,14 +183,22 @@ def build():
             md.reset()
             html_content = md.convert(processed_md)
 
-            # Copy dist files to site output
-            dist_file_names = []
-            if chal["dist_files"]:
-                files_dir = ctf_dir / "files" / chal["slug"]
-                files_dir.mkdir(parents=True, exist_ok=True)
-                for fpath in chal["dist_files"]:
-                    shutil.copy2(fpath, files_dir / fpath.name)
-                    dist_file_names.append(fpath.name)
+            chal_dir = ROOT / "ctfs" / ctf["slug"] / chal["category"] / chal["slug"]
+
+            # Copy all files from dist/ to output (for writeup references)
+            dist_dir_src = chal_dir / "dist"
+            if dist_dir_src.is_dir():
+                dist_dir = ctf_dir / chal["slug"] / "dist"
+                dist_dir.mkdir(parents=True, exist_ok=True)
+                for fpath in dist_dir_src.iterdir():
+                    if fpath.is_file():
+                        shutil.copy2(fpath, dist_dir / fpath.name)
+
+            # Copy files listed in challenge.yml to site output (for download section)
+            file_names = []
+            if chal["chal_files"]:
+                for file_ref in chal["chal_files"]:
+                    file_names.append(Path(file_ref).name)
 
             # Copy solve scripts to site output
             if chal["scripts"]:
@@ -216,7 +223,7 @@ def build():
                 "scripts": chal["scripts"],
                 "chal_yml": chal["chal_yml"],
                 "desc_html": desc_html,
-                "dist_files": dist_file_names,
+                "dist_files": file_names,
             }
             challenges.append(chal_data)
 
