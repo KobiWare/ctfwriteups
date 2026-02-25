@@ -16,7 +16,7 @@ extra:
   minimum: 50
   function: logarithmic
 flags:
-- BCCTF{Crak3rs_P3lZ}
+- BCCTF{CrAk3rs_P3lZ}
 tags: []
 hints: []
 state: visible

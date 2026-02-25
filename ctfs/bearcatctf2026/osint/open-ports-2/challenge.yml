@@ -12,7 +12,8 @@ extra:
   decay: 50
   minimum: 50
   function: logarithmic
-flags: []
+flags:
+- BCCTF{Mobile}
 tags: []
 hints: []
 state: visible

@@ -24,6 +24,7 @@ extra:
   minimum: 50
   function: logarithmic
 flags:
+- BCCTF{Crenshaw}
 tags: []
 hints: []
 state: visible

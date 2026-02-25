@@ -7,4 +7,4 @@ Find your favorite audio-to-spectrogram tool and drop the mp3 into this. Look fo
 
 ## Flag
 
-`BCCTF{Crak3rs_P3lZ}`
+`BCCTF{CrAk3rs_P3lZ}`

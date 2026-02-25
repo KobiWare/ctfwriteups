@@ -16,6 +16,7 @@ extra:
   minimum: 50
   function: logarithmic
 flags:
+- BCCTF{BLTMMDUVDS0}
 tags: []
 hints: []
 state: visible

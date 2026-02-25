@@ -16,7 +16,8 @@ extra:
   decay: 50
   minimum: 50
   function: logarithmic
-flags: []
+flags:
+- BCCTF{Izmir}
 tags: []
 hints: []
 state: visible
