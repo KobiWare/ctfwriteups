@@ -30,7 +30,7 @@
             {% if dist_files %}
             <div class="challenge-info-files">
                 {% for file in dist_files %}
-                <a href="../files/{{ slug }}/{{ file }}" class="challenge-info-file" download>{{ file }}</a>
+                <a href="../{{ slug }}/dist/{{ file }}" class="challenge-info-file" download>{{ file }}</a>
                 {% endfor %}
             </div>
             {% endif %}
