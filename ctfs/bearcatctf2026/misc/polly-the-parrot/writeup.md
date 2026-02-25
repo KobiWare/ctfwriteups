@@ -1,5 +1,5 @@
 ---
-author:
+author: Mills
 credit: Mills
 ---
 ## Solution
@@ -7,4 +7,4 @@ Find your favorite audio-to-spectrogram tool and drop the mp3 into this. Look fo
 
 ## Flag
 
-BCCTF{Crak3rs_P3lZ}
+`BCCTF{Crak3rs_P3lZ}`

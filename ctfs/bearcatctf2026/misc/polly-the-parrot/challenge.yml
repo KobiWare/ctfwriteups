@@ -15,7 +15,8 @@ extra:
   decay: 50
   minimum: 50
   function: logarithmic
-flags: []
+flags:
+- BCCTF{Crak3rs_P3lZ}
 tags: []
 hints: []
 state: visible
