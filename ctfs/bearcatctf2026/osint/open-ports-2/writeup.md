@@ -10,10 +10,14 @@ and further back in time. (2009)
 As its data only went back to 2012, I couldn't use 
 [the tool I used on the previous challenge](https://globalfishingwatch.org/map/vessel-search).
 Instead, I repeatedly prompted grok to find me a dataset that would contain location until it found the following data from NOAA:
-- https://coast.noaa.gov/htdata/CMSP/AISDataHandler/2009/01_January_2009/Zone14_2009_01.zip
-- https://coast.noaa.gov/htdata/CMSP/AISDataHandler/2009/01_January_2009/Zone15_2009_01.zip
-- https://coast.noaa.gov/htdata/CMSP/AISDataHandler/2009/01_January_2009/Zone16_2009_01.zip
-- https://coast.noaa.gov/htdata/CMSP/AISDataHandler/2009/01_January_2009/Zone17_2009_01.zip
+
+- [https://coast.noaa.gov/htdata/CMSP/AISDataHandler/2009/01_January_2009/Zone14_2009_01.zip](https://coast.noaa.gov/htdata/CMSP/AISDataHandler/2009/01_January_2009/Zone14_2009_01.zip)
+
+- [https://coast.noaa.gov/htdata/CMSP/AISDataHandler/2009/01_January_2009/Zone15_2009_01.zip](https://coast.noaa.gov/htdata/CMSP/AISDataHandler/2009/01_January_2009/Zone15_2009_01.zip)
+
+- [https://coast.noaa.gov/htdata/CMSP/AISDataHandler/2009/01_January_2009/Zone16_2009_01.zip](https://coast.noaa.gov/htdata/CMSP/AISDataHandler/2009/01_January_2009/Zone16_2009_01.zip)
+
+- [https://coast.noaa.gov/htdata/CMSP/AISDataHandler/2009/01_January_2009/Zone17_2009_01.zip](https://coast.noaa.gov/htdata/CMSP/AISDataHandler/2009/01_January_2009/Zone17_2009_01.zip)
 
 I then asked it to write a script to parse through this data looking for an MMSI of 311714000 and the script outputted this:
 ```
